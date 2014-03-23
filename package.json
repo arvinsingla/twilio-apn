@@ -1,0 +1,23 @@
+{
+  "name": "twilio-apn",
+  "version": "0.0.0",
+  "description": "A simple Apple push notification service to store device tokens and send messages to APN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "twilio",
+    "apn"
+  ],
+  "author": "Arvin Singla",
+  "license": "BSD",
+  "dependencies": {
+    "redis": "~0.10.1",
+    "apnagent": "~1.1.0",
+    "hiredis": "~0.1.16",
+    "path": "~0.4.9",
+    "express": "^3.5.0"
+  }
+}
