@@ -130,7 +130,6 @@ app.post('/api/apn', function(req, res) {
                 agent.createMessage()
                 .device(reply)
                 .alert(req.body.body)
-                .set('sid', req.body.sid)
                 .set('from', req.body.from)
                 .badge(1)
                 .send(function (err) {
