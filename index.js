@@ -123,14 +123,15 @@ app.post('/api/token', function(req, res) {
 app.post('/api/apn', function(req, res) {
     var agent = app.get('apn');
     if (req.body.hasOwnProperty('AccountSid')) {
-        var number = req.body.To.replace("+1", "");
+        var toNumber = req.body.To.replace("+1", "");
+        var fromNumber = req.body.From.replace("+1", "");
         redisClient.get(number, function(err, reply) {
             // If we find a valid token create an APN message.
             if (reply !== null) {
                 agent.createMessage()
                 .device(reply)
                 .alert(req.body.Body)
-                .set('from', req.body.From)
+                .set('from', fromNumber)
                 .set('sid', req.body.SmsMessageSid)
                 .badge(1)
                 .send(function (err) {
