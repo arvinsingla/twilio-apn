@@ -125,7 +125,7 @@ app.post('/api/apn', function(req, res) {
     if (req.body.hasOwnProperty('AccountSid')) {
         var toNumber = req.body.To.replace("+1", "");
         var fromNumber = req.body.From.replace("+1", "");
-        redisClient.get(number, function(err, reply) {
+        redisClient.get(toNumber, function(err, reply) {
             // If we find a valid token create an APN message.
             if (reply !== null) {
                 agent.createMessage()
