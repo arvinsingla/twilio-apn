@@ -129,7 +129,10 @@ app.post('/api/apn', function(req, res) {
             if (reply !== null) {
                 agent.createMessage()
                 .device(reply)
-                .alert(req.body.Body)
+                .alert(req.body.body)
+                .set('sid', req.body.sid)
+                .set('from', req.body.from)
+                .set('date_updated', req.body.date_created)
                 .badge(1)
                 .send(function (err) {
                   // handle apnagent custom errors
